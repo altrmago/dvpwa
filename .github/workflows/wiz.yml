@@ -1,5 +1,5 @@
 name: 'wiz-cli'
-on: [pull_request]
+on: [pull_request, push]
 
 jobs:
   wiz-cli-image-scan:
@@ -35,4 +35,4 @@ jobs:
         WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
 
     - name: Run wiz-cli docker image scan
-      run: ./wizcli docker scan --image $TAG --policy "$POLICY" 
+      run: ./wizcli docker scan --image $TAG --policy "$POLICY" #wiz cli scan tag to mark scan(Helix Asset ID),  and projects scan based on UUID
